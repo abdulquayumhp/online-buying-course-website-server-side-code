@@ -13,6 +13,13 @@ app.get("/courses", (req, res) => {
 	res.send(courses);
 });
 
+app.get("/courses/:id", (req, res) => {
+	const id = parseInt(req.params.id);
+	const selectedCourses = courses.find(c => c.id === id);
+	res.send(selectedCourses);
+	console.log(selectedCourses);
+});
+
 app.get("/", (req, res) => {
 	res.send("news api running");
 });
